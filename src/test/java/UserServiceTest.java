@@ -1,4 +1,5 @@
 import org.example.ServiceException;
+import org.example.UserService;
 import org.example.Utilisateur;
 import org.example.UtilisateurApi;
 import org.junit.Test;
@@ -18,12 +19,12 @@ public class UserServiceTest {
             Utilisateur utilisateur = new Utilisateur("Jean", "Dupont","jeandupont@email.com");
             // TODO : Configuration du comportement du mock, utiliser la
             //directive « when » avec sa méthode « thenReturn »
-            // ...
+            doNothing().when(utilisateurApiMock).creerUtilisateur(utilisateur);
             // TODO : Création du service avec le mock
-            // ...
+            UtilisateurApi userService = new UserService(utilisateurApiMock);
             // TODO : Appel de la méthode à tester
 
-            // ...
+            
             // TODO : Vérification de l'appel à l'API
             // ...
         }

@@ -1,6 +1,6 @@
 package org.example;
 
-public class UserService {
+public class UserService implements UtilisateurApi {
 
     private final UtilisateurApi utilisateurApi;
     public UserService(UtilisateurApi utilisateurApi) {
