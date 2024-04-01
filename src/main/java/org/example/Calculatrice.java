@@ -7,4 +7,8 @@ public class Calculatrice {
         return result;
     }
 
+    public int getState(){
+        return -1;
+    }
+
 }

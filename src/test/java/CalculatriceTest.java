@@ -33,5 +33,7 @@ public class CalculatriceTest {
         //méthode "additionner", penser à utiliser la méthode
         //« getState() » de la directive « verify » : // exemple :
         //verify(objet).getState()
+        int state = calculatrice.getState();
+        verify(calculatrice).getState();
     }
 }
