@@ -23,9 +23,8 @@ public class UserServiceTest {
             // TODO : Création du service avec le mock
             UtilisateurApi userService = new UserService(utilisateurApiMock);
             // TODO : Appel de la méthode à tester
-
-            
+            userService.creerUtilisateur(utilisateur);
             // TODO : Vérification de l'appel à l'API
-            // ...
+            
         }
 }
