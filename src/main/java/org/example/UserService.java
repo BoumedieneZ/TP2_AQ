@@ -7,7 +7,7 @@ public class UserService implements UtilisateurApi {
         this.utilisateurApi = utilisateurApi;
     }
     public void creerUtilisateur(Utilisateur utilisateur) throws ServiceException {
-        utilisateurApi.creerUtilisateur(utilisateur);
+        //utilisateurApi.creerUtilisateur(utilisateur);
     }
 
 }

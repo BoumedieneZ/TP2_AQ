@@ -47,4 +47,17 @@ public class UserServiceTest {
         // Throw Excptn
         assertThrows(ServiceException.class, () -> userService.creerUtilisateur(utilisateur));
     }
+
+
+    @Test
+    public void testCreerUtilisateur_ErreurValidation() throws ServiceException {
+        // Création d'un nouvel utilisateur avec un email invalide
+        Utilisateur utilisateur = new Utilisateur("Jean", "Dupont", "invalidemail");
+        UserService userService = new UserService(utilisateurApiMock);
+        // Appel de la méthode à tester
+        userService.creerUtilisateur(utilisateur);
+
+        // Vérification que la méthode de validation n'est jamais appelée
+        verify(utilisateurApiMock, never()).creerUtilisateur(utilisateur);
+    }
 }
