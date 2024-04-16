@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -29,4 +31,20 @@ public class UserServiceTest {
             // TODO : Vérification de l'appel à l'API
             verify(utilisateurApiMock, times(1)).creerUtilisateur(utilisateur);
         }
+
+
+    @Test
+    public void testCreerUtilisateur_EchecCreation() throws ServiceException {
+        // Création d'un nouvel utilisateur
+        Utilisateur utilisateur = new Utilisateur("Jean", "Dupont", "jeandupont@email.com");
+
+        // Configuration du mock pour lever une exception lors de la création de l'utilisateur
+        doThrow(new ServiceException("Echec de la création de l'utilisateur")).when(utilisateurApiMock).creerUtilisateur(utilisateur);
+
+        // Création du service avec le mock
+        UserService userService = new UserService(utilisateurApiMock);
+
+        // Throw Excptn
+        assertThrows(ServiceException.class, () -> userService.creerUtilisateur(utilisateur));
+    }
 }
