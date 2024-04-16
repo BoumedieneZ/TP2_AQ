@@ -19,6 +19,8 @@ public class UserServiceTest {
             Utilisateur utilisateur = new Utilisateur("Jean", "Dupont","jeandupont@email.com");
             // TODO : Configuration du comportement du mock, utiliser la
             //directive « when » avec sa méthode « thenReturn »
+            doThrow(new ServiceException("Echec de la création de l'utilisateur")).when(utilisateurApiMock).creerUtilisateur(utilisateur);
+
             doNothing().when(utilisateurApiMock).creerUtilisateur(utilisateur);
             // TODO : Création du service avec le mock
             UtilisateurApi userService = new UserService(utilisateurApiMock);
