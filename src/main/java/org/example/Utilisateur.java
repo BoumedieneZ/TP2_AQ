@@ -2,6 +2,7 @@ package org.example;
 
 public class Utilisateur {
 
+    private int id;
     private String nom;
     private String prenom;
     private String email;
@@ -10,6 +11,14 @@ public class Utilisateur {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
+
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

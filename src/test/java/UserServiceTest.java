@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -60,4 +61,27 @@ public class UserServiceTest {
         // Vérification que la méthode de validation n'est jamais appelée
         verify(utilisateurApiMock, never()).creerUtilisateur(utilisateur);
     }
+
+    @Test
+    public void testCreerUtilisateur_AvecID() throws ServiceException {
+        // Création d'un nouvel utilisateur
+        Utilisateur utilisateur = new Utilisateur("Jean", "Dupont", "jeandupont@email.com");
+
+        // Définition d'un ID fictif
+        int idUtilisateur = 123;
+        utilisateur.setId(idUtilisateur);
+        // Configuration du mock pour renvoyer l'ID
+
+        when(utilisateurApiMock.getIDUtilisateur(utilisateur)).thenReturn(idUtilisateur);
+
+        UserService userService = new UserService(utilisateurApiMock);
+
+        // Appel de la méthode à tester
+        userService.creerUtilisateur(utilisateur);
+
+        // Vérification de l'ID de l'utilisateur
+        assertEquals(idUtilisateur, utilisateur.getId());
+    }
+
+
 }
