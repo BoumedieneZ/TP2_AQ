@@ -4,6 +4,7 @@ import org.example.Utilisateur;
 import org.example.UtilisateurApi;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -81,6 +82,30 @@ public class UserServiceTest {
 
         // Vérification de l'ID de l'utilisateur
         assertEquals(idUtilisateur, utilisateur.getId());
+    }
+
+
+    @Test
+    public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
+        // Création d'un nouvel utilisateur
+        Utilisateur utilisateur = new Utilisateur("Jean", "Dupont", "jeandupont@email.com");
+
+        // ArgumentCaptor pour capturer les arguments passés à creerUtilisateur
+        ArgumentCaptor<Utilisateur> argumentCaptor = ArgumentCaptor.forClass(Utilisateur.class);
+        UserService userService = new UserService(utilisateurApiMock);
+
+
+        // Appel de la méthode à tester
+        userService.creerUtilisateur(utilisateur);
+
+        // Capture des arguments passés à creerUtilisateur
+        verify(utilisateurApiMock).creerUtilisateur(argumentCaptor.capture());
+        Utilisateur utilisateurCapture = argumentCaptor.getValue();
+
+        // Vérification des arguments capturés
+        assertEquals(utilisateur.getNom(), utilisateurCapture.getNom());
+        assertEquals(utilisateur.getPrenom(), utilisateurCapture.getPrenom());
+        assertEquals(utilisateur.getEmail(), utilisateurCapture.getEmail());
     }
 
 
