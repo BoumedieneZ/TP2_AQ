@@ -27,3 +27,22 @@ Nous utilisons `verify(utilisateurApiMock, times(1)).creerUtilisateur(utilisateu
 
 
 # Exercice 3 : Mocker un service externe avec différents scénarios
+## Scénario 1 : Lever une exception lors de la création de l'utilisateur
+Nous utilisons Mockito pour configurer notre mock de l'API utilisateur afin de lancer cette exception lorsqu'elle est appelée avec un utilisateur spécifique. Ensuite, nous vérifions que notre service gère correctement cette exception en l'attrapant et en la gérant de manière appropriée.
+
+# Scénario 2 : Tester le comportement en cas d'erreur de validation
+Nous utilisons Mockito pour vérifier que la méthode de validation n'est jamais appelée lorsque l'utilisateur fourni a des données invalides.
+```
+@Test
+public void testCreerUtilisateur_ErreurValidation() throws ServiceException {
+    // Création d'un nouvel utilisateur avec un email invalide
+    Utilisateur utilisateur = new Utilisateur("Jean", "Dupont", "invalidemail");
+
+    // Appel de la méthode à tester
+    userService.creerUtilisateur(utilisateur);
+
+    // Vérification que la méthode de validation n'est jamais appelée
+    verify(utilisateurApiMock, never()).creerUtilisateur(utilisateur);
+}
+
+```
