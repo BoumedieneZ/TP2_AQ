@@ -24,3 +24,6 @@ Nous créons une instance du service `UserService` en utilisant le mock `utilisa
 Nous appelons la méthode `creerUtilisateur` sur notre instance du service `UserService` en passant un objet `Utilisateur` en paramètre.
 ## TODO : Vérification de l'appel à l'API
 Nous utilisons `verify(utilisateurApiMock, times(1)).creerUtilisateur(utilisateur);` pour vérifier que la méthode `creerUtilisateur` de l'API des utilisateurs a bien été appelée.
+
+
+# Exercice 3 : Mocker un service externe avec différents scénarios
