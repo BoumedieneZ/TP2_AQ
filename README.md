@@ -90,5 +90,5 @@ public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
 
 # Exercice 4 : 
 ## Tester la méthode jouer du jeu du 7 
-     1. Les objets mockés :
-        -Joueur (joueurMock) : Le joueur doit être mocké car nous voulons simuler son comportement et ses actions pendant le jeu. Cela inclut sa mise, son débit (si nécessaire), et son crédit en cas de gain.
+1. Les objets mockés :
+- Joueur (joueurMock) : Le joueur doit être mocké car nous voulons simuler son comportement et ses actions pendant le jeu. Cela inclut sa mise, son débit (si nécessaire), et son crédit en cas de gain.
