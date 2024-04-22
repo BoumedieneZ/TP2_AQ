@@ -90,7 +90,22 @@ public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
 
 # Exercice 4 : 
 ## Tester la méthode jouer du jeu du 7 
-1. Les objets mockés :
+### 1. Les objets mockés :
 - Joueur (joueurMock) : Le joueur doit être mocké car nous voulons simuler son comportement et ses actions pendant le jeu. Cela inclut sa mise, son débit (si nécessaire), et son crédit en cas de gain.
 - De (de1Mock et de2Mock) : Les dés doivent être mockés pour contrôler le résultat de leurs lancers.
-- Banque (banqueMock) : La banque doit être mockée pour simuler ses interactions avec le joueur, notamment le débit et le crédit en fonction du résultat du jeu. 
+- Banque (banqueMock) : La banque doit être mockée pour simuler ses interactions avec le joueur, notamment le débit et le crédit en fonction du résultat du jeu.
+### 2. Classes d’équivalence (sénarios) :
+- Scénario de somme égale à 7 (cas de réussite) :
+  - Les dés sont simulés pour donner une somme égale à 7.
+  - Le joueur a une mise suffisante pour jouer.
+  - La banque est solvable et peut payer les gains du joueur.
+  - Le jeu est fermé.
+  - Le joueur est insolvable.
+- Scénario de somme différente de 7 (cas de non-réussite) :
+  - Les dés sont simulés pour donner une somme différente de 7.
+  - Le joueur a une mise suffisante pour jouer.
+  - La banque est solvable.
+- Scénario de mise insuffisante (cas d'échec) :
+  - La banque est solvable.
+  - Le joueur a une mise insuffisante pour jouer.
+  - Les dés sont simulés pour donner une somme égale à 7.
