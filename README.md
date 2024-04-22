@@ -92,3 +92,5 @@ public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
 ## Tester la méthode jouer du jeu du 7 
 1. Les objets mockés :
 - Joueur (joueurMock) : Le joueur doit être mocké car nous voulons simuler son comportement et ses actions pendant le jeu. Cela inclut sa mise, son débit (si nécessaire), et son crédit en cas de gain.
+- De (de1Mock et de2Mock) : Les dés doivent être mockés pour contrôler le résultat de leurs lancers.
+- Banque (banqueMock) : La banque doit être mockée pour simuler ses interactions avec le joueur, notamment le débit et le crédit en fonction du résultat du jeu. 
