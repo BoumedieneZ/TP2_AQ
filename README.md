@@ -87,3 +87,7 @@ public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
 }
 
 ```
+
+# Exercice 4 : 
+## Tester la méthode jouer du jeu du 7 
+
