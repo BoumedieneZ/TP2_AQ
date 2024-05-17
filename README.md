@@ -32,7 +32,7 @@ Nous utilisons Mockito pour configurer notre mock de l'API utilisateur afin de l
 
 ## Scénario 2 : Tester le comportement en cas d'erreur de validation
 Nous utilisons Mockito pour vérifier que la méthode de validation n'est jamais appelée lorsque l'utilisateur fourni a des données invalides.
-```
+```java
 @Test
 public void testCreerUtilisateur_ErreurValidation() throws ServiceException {
     //code ...
@@ -43,7 +43,7 @@ public void testCreerUtilisateur_ErreurValidation() throws ServiceException {
 ```
 # Scénario 3 : Supposer que l'API renvoie un identifiant unique pour l'utilisateur créé
 ## Nous utilisons Mockito pour configurer notre mock de l'API utilisateur afin de renvoyer cet identifiant unique lorsque la méthode creerUtilisateur est appelée avec un utilisateur spécifique. Ensuite, nous vérifions que notre service utilise correctement cet identifiant après avoir créé l'utilisateur.
-```
+```java
 @Test
 public void testCreerUtilisateur_AvecID() throws ServiceException {
     // Création d'un nouvel utilisateur
@@ -66,7 +66,7 @@ public void testCreerUtilisateur_AvecID() throws ServiceException {
 ```
 # Scénario 4 : Utiliser des arguments capturés pour vérifier les arguments exacts
 ## Nous utilisons Mockito et la classe ArgumentCaptor pour réaliser cela.
-```
+```java
 @Test
 public void testCreerUtilisateur_ArgumentsCaptures() throws ServiceException {
     
